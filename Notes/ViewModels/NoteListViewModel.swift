@@ -5,8 +5,6 @@
 //  Created by 이승주 on 2022/01/19.
 //
 
-import Foundation
-
 class NoteListViewModel {
     private let repository: NoteRepository = NoteRepositoryInjection.injectExpositionRepository()
     var updateView: () -> Void = {}

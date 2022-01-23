@@ -88,14 +88,6 @@ final class NotesTableViewController: UITableViewController, ModifyDelegate {
         }
     }
 
-    func callActivityViewController(entireContents: String) {
-        let activityViewController = UIActivityViewController(
-            activityItems: [entireContents],
-            applicationActivities: nil
-        )
-        self.present(activityViewController, animated: true, completion: nil)
-    }
-
     func modify() {
         self.noteListViewModel.fetchNotes()
     }

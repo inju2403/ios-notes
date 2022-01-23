@@ -18,7 +18,6 @@ final class NoteViewController: UIViewController {
     private var noteDetailViewModel = NoteDetailViewModel()
     var noteTableViewController: NotesTableViewController?
     var note: Note?
-    private var willUpdateNote = true
     weak var delegate: ModifyDelegate?
 
     override func viewDidLoad() {
@@ -49,7 +48,6 @@ final class NoteViewController: UIViewController {
     }
 
     func setViews() {
-        self.willUpdateNote = true
         DispatchQueue.main.async {
             guard let note = self.note else { return }
 
@@ -86,7 +84,6 @@ final class NoteViewController: UIViewController {
         self.noteDetailViewModel.deleteNote(note: note) { [weak self] in
             guard let self = self else { return }
 
-            self.willUpdateNote = false
             DispatchQueue.main.async {
                 if self.splitViewController?.isCollapsed == true {
                     self.noteTableViewController?.navigationController?.popViewController(animated: true)
